@@ -2,11 +2,10 @@ import express from 'express';
 import { clientController } from '../controllers';
 
 const router = express.Router();
-router.route('/:licensePlate')
+router.route('/:client')
     .get(clientController.getClientInfo)
-    .get(clientController.getAllInvoices);
     
-router.route('/:licensePlate/:invoices')
+router.route('/:client/:licensePlate')
     .post(clientController.postInvoice)
     .get(clientController.getInvoice);
 
