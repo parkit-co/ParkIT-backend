@@ -1,1 +1,3 @@
 # ParkIT
+
+Automated Parking Service
