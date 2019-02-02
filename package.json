@@ -2,9 +2,10 @@
   "name": "parkit",
   "version": "1.0.0",
   "description": "Automated Parking Service",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon --exec babel-node src/index.js",
+    "build": "rm -Rf dist && babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +19,17 @@
   },
   "homepage": "https://github.com/meixinzhang/Parkit#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "express": "^4.16.4",
-    "firebase": "^5.8.2"
+    "firebase": "^5.8.2",
+    "body-parser": "*"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
     "nodemon": "^1.18.9"
   }
 }
