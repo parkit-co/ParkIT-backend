@@ -27,6 +27,7 @@ export const parkingController = {
             database.close();
         }); 
     },
+    
     postParkingSpot: async (req, res) => {
         const { parkingLot, parkingSpot } = req.params;
         const { licensePlate, time, action } = req.body;
