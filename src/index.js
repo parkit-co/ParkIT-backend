@@ -2,6 +2,8 @@ import "@babel/polyfill";
 import bodyParser from 'body-parser';
 import express from 'express';
 import firebase from "firebase";
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Initialize Firebase
 // TODO: Replace with your project's customized code snippet
@@ -28,4 +30,4 @@ Object.keys(Routes).forEach(key => {
   app.use(path, router);
 });
 
-app.listen(3000);
+app.listen(process.env.PORT);
