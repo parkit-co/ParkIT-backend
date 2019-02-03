@@ -2,6 +2,7 @@ import "@babel/polyfill";
 import bodyParser from 'body-parser';
 import express from 'express';
 import firebase from "firebase";
+import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -23,6 +24,7 @@ const app = express();
 // Setup parsing for handlers
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 // Initialize all the routes dynamically
 Object.keys(Routes).forEach(key => {
