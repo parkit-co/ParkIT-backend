@@ -16,7 +16,7 @@ export const clientController = {
                 invoices: (snapshot.val() && snapshot.val().invoices) || 'No payment history',
             };
             res.json({ status: 'SUCCESS', data: user });
-            database.close();
+            // database.close();
         });
     },
 }
