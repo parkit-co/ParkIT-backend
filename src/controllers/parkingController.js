@@ -30,7 +30,7 @@ export const parkingController = {
     
     postParkingSpot: async (req, res) => {
         const { parkingLot, parkingSpot } = req.params;
-        const { licensePlate, time, action } = req.body;
+        const { action, license, time } = req.body;
         var rate;
         var id = "00002";
         var startTime;
@@ -44,7 +44,7 @@ export const parkingController = {
             rate = (snapshot.val() && snapshot.val().rate) || 0;
 
             var database_inv = firebase.database();
-            database_inv = database_inv.ref('client/' + licensePlate + '/invoices/inv00002');
+            database_inv = database_inv.ref('client/' + license + '/invoices/inv00002');
         
             if (action == "leaving") {
                 startTime = moment('2019-02-02_1030', 'YYYY-MM-DD_HHmm');
