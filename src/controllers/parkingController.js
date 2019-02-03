@@ -37,6 +37,8 @@ export const parkingController = {
         var endTime;
         var duration;
         
+        console.log(req.body);
+
         var database_park = firebase.database();
         database_park.ref('parking/' + parkingLot).once('value').then(function(snapshot) {
             rate = (snapshot.val() && snapshot.val().rate) || 0;
