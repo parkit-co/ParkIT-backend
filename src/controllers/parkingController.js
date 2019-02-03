@@ -47,7 +47,7 @@ export const parkingController = {
             database_inv = database_inv.ref('client/' + license + '/invoices/inv00002');
         
             if (action == "leaving") {
-                startTime = moment('2019-02-02_1030', 'YYYY-MM-DD_HHmm');
+                startTime = moment('2019-02-03_0730', 'YYYY-MM-DD_HHmm');
                 endTime = moment(time, 'YYYY-MM-DD_HHmm');
                 duration = endTime.diff(startTime, 'minutes');
             } else { 
