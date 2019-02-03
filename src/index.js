@@ -20,6 +20,7 @@ const app = express();
 
 // Setup parsing for handlers
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Initialize all the routes dynamically
 Object.keys(Routes).forEach(key => {
