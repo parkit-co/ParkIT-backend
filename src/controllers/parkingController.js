@@ -9,7 +9,7 @@ export const parkingController = {
         database.once('value').then(function(snapshot) {
             var parkingLots = snapshot.val() || 'No parking lot detected';
             res.json({ status: 'SUCCESS', data: parkingLots });
-            database.close();
+            // database.close();
         });
     },
 
@@ -24,7 +24,7 @@ export const parkingController = {
                 spots: (snapshot.val() && snapshot.val().parkingSpots) || 'Empty Garage',
             };
             res.json({ status: 'SUCCESS', data: lot });
-            database.close();
+            // database.close();
         }); 
     },
     
@@ -83,7 +83,7 @@ export const parkingController = {
                 available: (snapshot.val() && snapshot.val().avail) || 'false',
             };
             res.json({ status: 'SUCCESS', data: spot });
-            database.close();
+            // database.close();
         }); 
     }
 }
