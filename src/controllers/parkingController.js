@@ -56,7 +56,7 @@ export const parkingController = {
                 startTime =  moment('2019-02-13_0830', 'YYYY-MM-DD_HHmm');
                 endTime = moment(time, 'YYYY-MM-DD_HHmm');
                 duration = endTime.diff(startTime, 'minutes');
-            } else if (action == "entering") { 
+            } else if (action == "entering") {
                 startTime = moment(time, 'YYYY-MM-DD_HHmm');
                 endTime = moment(time, 'YYYY-MM-DD_HHmm');
                 duration = endTime.diff(startTime, 'minutes');
