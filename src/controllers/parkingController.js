@@ -44,14 +44,22 @@ export const parkingController = {
             rate = (snapshot.val() && snapshot.val().rate) || 0;
 
             var database_inv = firebase.database();
+	        // next step would be getting the invoice number
             database_inv = database_inv.ref('client/' + license + '/invoices/inv00002');
         
             if (action == "leaving") {
-                startTime = moment('2019-02-03_0730', 'YYYY-MM-DD_HHmm');
+                // doesnt work yet, needs to be wait for start time to resolve
+                startTime = database_inv.once('value').then(function(snapshot) {
+                    return snapshot.val() && snapshot.val().start;
+                });
+                console.log(startTime);
+                startTime =  moment('2019-02-13_0830', 'YYYY-MM-DD_HHmm');
                 endTime = moment(time, 'YYYY-MM-DD_HHmm');
                 duration = endTime.diff(startTime, 'minutes');
-            } else { 
-                // new invoice triggered with (action == 'entering'), coming soon
+            } else if (action == "entering") { 
+                startTime = moment(time, 'YYYY-MM-DD_HHmm');
+                endTime = moment(time, 'YYYY-MM-DD_HHmm');
+                duration = endTime.diff(startTime, 'minutes');
             }
 
             endTime = endTime.format('lll');
